@@ -16,27 +16,27 @@ const Index = () => {
   const services = [
     {
       id: 1,
-      title: 'Консультация',
-      description: 'Персональная консультация с экспертом',
-      price: '5000 ₽',
-      duration: '60 мин',
-      image: '/img/e54f522e-4209-4cfa-9a29-38ed945b6cfd.jpg'
+      title: 'Классический балет',
+      description: 'Основы балетного искусства для всех уровней',
+      price: '2000 ₽',
+      duration: '90 мин',
+      image: '/img/2b95e8dc-e802-4658-95a1-8eda07b439ed.jpg'
     },
     {
       id: 2,
-      title: 'Диагностика',
-      description: 'Полная диагностика и анализ',
-      price: '8000 ₽',
-      duration: '90 мин',
-      image: '/img/e54f522e-4209-4cfa-9a29-38ed945b6cfd.jpg'
+      title: 'Современные танцы',
+      description: 'Contemporary и модерн танцы',
+      price: '1800 ₽',
+      duration: '60 мин',
+      image: '/img/2b95e8dc-e802-4658-95a1-8eda07b439ed.jpg'
     },
     {
       id: 3,
-      title: 'Лечение',
-      description: 'Комплексное лечение',
-      price: '12000 ₽',
-      duration: '120 мин',
-      image: '/img/e54f522e-4209-4cfa-9a29-38ed945b6cfd.jpg'
+      title: 'Хип-хоп',
+      description: 'Энергичные уличные танцы',
+      price: '1500 ₽',
+      duration: '60 мин',
+      image: '/img/2b95e8dc-e802-4658-95a1-8eda07b439ed.jpg'
     }
   ];
 
@@ -44,13 +44,31 @@ const Index = () => {
     '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'
   ];
 
-  const bookingData = [
-    { date: '2025-01-20', time: '10:00', service: 'Консультация', status: 'Забронировано' },
-    { date: '2025-01-20', time: '14:00', service: 'Диагностика', status: 'Доступно' },
-    { date: '2025-01-21', time: '09:00', service: 'Лечение', status: 'Доступно' },
-    { date: '2025-01-21', time: '15:00', service: 'Консультация', status: 'Забронировано' },
-    { date: '2025-01-22', time: '11:00', service: 'Диагностика', status: 'Доступно' },
-    { date: '2025-01-22', time: '16:00', service: 'Лечение', status: 'Доступно' },
+  const scheduleData = [
+    {
+      day: 'Понедельник',
+      classes: [
+        { time: '10:00', name: 'Классический балет', instructor: 'Анна Иванова', level: 'Начальный', spots: 12, booked: 8 },
+        { time: '18:00', name: 'Современные танцы', instructor: 'Мария Петрова', level: 'Средний', spots: 15, booked: 15 },
+        { time: '20:00', name: 'Хип-хоп', instructor: 'Дмитрий Козлов', level: 'Продвинутый', spots: 20, booked: 12 }
+      ]
+    },
+    {
+      day: 'Вторник',
+      classes: [
+        { time: '09:00', name: 'Классический балет', instructor: 'Анна Иванова', level: 'Продвинутый', spots: 10, booked: 7 },
+        { time: '17:00', name: 'Современные танцы', instructor: 'Екатерина Смирнова', level: 'Начальный', spots: 15, booked: 5 },
+        { time: '19:00', name: 'Хип-хоп', instructor: 'Дмитрий Козлов', level: 'Средний', spots: 18, booked: 18 }
+      ]
+    },
+    {
+      day: 'Среда',
+      classes: [
+        { time: '11:00', name: 'Классический балет', instructor: 'Анна Иванова', level: 'Средний', spots: 12, booked: 9 },
+        { time: '18:30', name: 'Современные танцы', instructor: 'Мария Петрова', level: 'Продвинутый', spots: 12, booked: 10 },
+        { time: '20:30', name: 'Хип-хоп', instructor: 'Алексей Николаев', level: 'Начальный', spots: 25, booked: 15 }
+      ]
+    }
   ];
 
   return (
@@ -61,7 +79,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Icon name="Calendar" className="text-primary" size={32} />
-              <h1 className="text-2xl font-bold text-gray-900">BookingPro</h1>
+              <h1 className="text-2xl font-bold text-gray-900">DanceStudio</h1>
             </div>
             <nav className="hidden md:flex space-x-6">
               <a href="#services" className="text-gray-600 hover:text-primary transition-colors">Услуги</a>
@@ -76,27 +94,27 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            Онлайн бронирование
-            <span className="text-primary block">быстро и удобно</span>
+            Студия танцев
+            <span className="text-primary block">твой путь к мечте</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Забронируйте нужную услугу всего за несколько кликов. 
-            Выберите удобное время и получите мгновенное подтверждение.
+            Присоединяйтесь к нашим танцевальным классам! 
+            Выберите направление и забронируйте место в группе.
           </p>
         </div>
 
         {/* Quick Booking Form */}
         <Card className="max-w-4xl mx-auto mb-16 animate-scale-in">
           <CardHeader>
-            <CardTitle className="text-2xl text-center">Быстрое бронирование</CardTitle>
+            <CardTitle className="text-2xl text-center">Записаться на занятие</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
               <div>
-                <Label htmlFor="service">Услуга</Label>
+                <Label htmlFor="service">Танцевальное направление</Label>
                 <Select value={selectedService} onValueChange={setSelectedService}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Выберите услугу" />
+                    <SelectValue placeholder="Выберите направление" />
                   </SelectTrigger>
                   <SelectContent>
                     {services.map(service => (
@@ -131,8 +149,8 @@ const Index = () => {
               </div>
               <div className="flex items-end">
                 <Button className="w-full hover-scale">
-                  <Icon name="Calendar" className="mr-2" size={18} />
-                  Забронировать
+                  <Icon name="Music" className="mr-2" size={18} />
+                  Записаться
                 </Button>
               </div>
             </div>
@@ -143,15 +161,15 @@ const Index = () => {
       {/* Services Section */}
       <section id="services" className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Наши услуги</h2>
-          <p className="text-xl text-gray-600">Профессиональный подход к каждому клиенту</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Танцевальные направления</h2>
+          <p className="text-xl text-gray-600">Найдите свой стиль в танце</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <Card key={service.id} className="hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="aspect-video bg-gradient-to-br from-blue-100 to-indigo-200 rounded-t-lg flex items-center justify-center">
-                <Icon name="Stethoscope" size={48} className="text-primary" />
+              <div className="aspect-video bg-gradient-to-br from-purple-100 to-pink-200 rounded-t-lg flex items-center justify-center">
+                <Icon name="Music" size={48} className="text-primary" />
               </div>
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
@@ -176,61 +194,100 @@ const Index = () => {
       {/* Booking Table */}
       <section id="booking" className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Расписание записей</h2>
-          <p className="text-xl text-gray-600">Выберите удобное время для записи</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Расписание занятий</h2>
+          <p className="text-xl text-gray-600">Выберите удобное время для тренировок</p>
         </div>
 
-        <Card className="max-w-6xl mx-auto">
-          <CardContent className="p-6">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b">
-                    <th className="text-left py-3 px-4 font-semibold">Дата</th>
-                    <th className="text-left py-3 px-4 font-semibold">Время</th>
-                    <th className="text-left py-3 px-4 font-semibold">Услуга</th>
-                    <th className="text-left py-3 px-4 font-semibold">Статус</th>
-                    <th className="text-left py-3 px-4 font-semibold">Действие</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bookingData.map((booking, index) => (
-                    <tr key={index} className="border-b hover:bg-gray-50 transition-colors">
-                      <td className="py-3 px-4">
-                        <div className="flex items-center">
-                          <Icon name="Calendar" className="mr-2 text-gray-400" size={16} />
-                          {new Date(booking.date).toLocaleDateString('ru-RU')}
-                        </div>
-                      </td>
-                      <td className="py-3 px-4">
-                        <div className="flex items-center">
-                          <Icon name="Clock" className="mr-2 text-gray-400" size={16} />
-                          {booking.time}
-                        </div>
-                      </td>
-                      <td className="py-3 px-4">{booking.service}</td>
-                      <td className="py-3 px-4">
-                        <Badge variant={booking.status === 'Доступно' ? 'default' : 'destructive'}>
-                          {booking.status}
-                        </Badge>
-                      </td>
-                      <td className="py-3 px-4">
-                        <Button 
-                          size="sm" 
-                          variant={booking.status === 'Доступно' ? 'default' : 'outline'}
-                          disabled={booking.status === 'Забронировано'}
-                          className="hover-scale"
-                        >
-                          {booking.status === 'Доступно' ? 'Забронировать' : 'Занято'}
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          {scheduleData.map((daySchedule, dayIndex) => (
+            <Card key={dayIndex} className="animate-fade-in" style={{ animationDelay: `${dayIndex * 0.1}s` }}>
+              <CardHeader>
+                <CardTitle className="text-2xl text-primary flex items-center">
+                  <Icon name="Calendar" className="mr-2" size={24} />
+                  {daySchedule.day}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Время</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Направление</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Преподаватель</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Уровень</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Места</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Действие</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {daySchedule.classes.map((classItem, classIndex) => {
+                        const isAvailable = classItem.booked < classItem.spots;
+                        const availableSpots = classItem.spots - classItem.booked;
+                        
+                        return (
+                          <tr key={classIndex} className="border-b hover:bg-gray-50 transition-colors">
+                            <td className="py-4 px-4">
+                              <div className="flex items-center">
+                                <Icon name="Clock" className="mr-2 text-gray-400" size={16} />
+                                <span className="font-medium">{classItem.time}</span>
+                              </div>
+                            </td>
+                            <td className="py-4 px-4">
+                              <div className="flex items-center">
+                                <Icon name="Music" className="mr-2 text-primary" size={16} />
+                                <span className="font-medium">{classItem.name}</span>
+                              </div>
+                            </td>
+                            <td className="py-4 px-4">
+                              <div className="flex items-center">
+                                <Icon name="User" className="mr-2 text-gray-400" size={16} />
+                                {classItem.instructor}
+                              </div>
+                            </td>
+                            <td className="py-4 px-4">
+                              <Badge 
+                                variant={
+                                  classItem.level === 'Начальный' ? 'default' : 
+                                  classItem.level === 'Средний' ? 'secondary' : 'destructive'
+                                }
+                              >
+                                {classItem.level}
+                              </Badge>
+                            </td>
+                            <td className="py-4 px-4">
+                              <div className="flex items-center space-x-2">
+                                <div className="w-full bg-gray-200 rounded-full h-2">
+                                  <div 
+                                    className="bg-primary h-2 rounded-full transition-all duration-300" 
+                                    style={{ width: `${(classItem.booked / classItem.spots) * 100}%` }}
+                                  />
+                                </div>
+                                <span className="text-sm text-gray-600 min-w-[60px]">
+                                  {availableSpots > 0 ? `${availableSpots} свободно` : 'Нет мест'}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="py-4 px-4">
+                              <Button 
+                                size="sm" 
+                                variant={isAvailable ? 'default' : 'outline'}
+                                disabled={!isAvailable}
+                                className="hover-scale"
+                              >
+                                {isAvailable ? 'Записаться' : 'Группа заполнена'}
+                              </Button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       {/* Contact Section */}
@@ -319,26 +376,26 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Icon name="Calendar" className="text-primary" size={24} />
-                <h3 className="text-xl font-bold">BookingPro</h3>
+                <Icon name="Music" className="text-primary" size={24} />
+                <h3 className="text-xl font-bold">DanceStudio</h3>
               </div>
               <p className="text-gray-400">
-                Современная платформа для онлайн бронирования услуг
+                Профессиональная студия танцев с лучшими преподавателями
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Услуги</h4>
+              <h4 className="font-semibold mb-4">Направления</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Консультация</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Диагностика</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Лечение</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Балет</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Современные танцы</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Хип-хоп</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Компания</h4>
+              <h4 className="font-semibold mb-4">Студия</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">О нас</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Команда</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Преподаватели</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Отзывы</a></li>
               </ul>
             </div>
@@ -346,13 +403,13 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Контакты</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>+7 (999) 123-45-67</li>
-                <li>info@bookingpro.ru</li>
-                <li>г. Москва, ул. Примерная, д. 123</li>
+                <li>info@dancestudio.ru</li>
+                <li>г. Москва, ул. Танцевальная, д. 15</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 BookingPro. Все права защищены.</p>
+            <p>&copy; 2025 DanceStudio. Все права защищены.</p>
           </div>
         </div>
       </footer>
